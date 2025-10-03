@@ -1,3 +1,22 @@
+"""
+unsupervised_cvl.py
+-------------------
+Core implementation of the (research-enhanced) Unsupervised Compressed
+Vector Language (CVL). Contains classes and utilities for generating
+sentence embeddings, dimensionality reduction, vector quantization,
+and compact binary encodings. Key components:
+
+- CompressedMessage / CompressedAgenticMessage dataclasses: binary
+    representations for compressed transmissions.
+- SimpleVectorQuantizer: a lightweight compositional vector quantizer.
+- TaskUtilityObjective and DecisionAwareTraining: research additions
+    for task-aware compression and downstream decision simulation.
+- UnsupervisedCVL: high-level API to fit models, compress/decompress
+    messages, benchmark semantic preservation, and persist models.
+
+This module is the core of the CVL pipeline used by demos and tests.
+"""
+
 import torch
 import numpy as np
 import json
@@ -139,7 +158,8 @@ class SimpleVectorQuantizer:
         print("Learning STABLE vector codebooks (no K-means)...")
         
         # Split embeddings by semantic role
-        dim_per_book = embeddings.shape[1] // self.n_codebooks
+        # Ensure each codebook gets at least 1 dimension when compressed dim is small
+        dim_per_book = max(1, embeddings.shape[1] // self.n_codebooks)
         
         for i in range(self.n_codebooks):
             start_dim = i * dim_per_book
@@ -165,7 +185,7 @@ class SimpleVectorQuantizer:
             raise ValueError("Codebooks not trained")
         
         codes = []
-        dim_per_book = embedding.shape[0] // self.n_codebooks
+        dim_per_book = max(1, embedding.shape[0] // self.n_codebooks)
         
         for i, codebook in enumerate(self.codebooks):
             start_dim = i * dim_per_book
@@ -345,7 +365,14 @@ class UnsupervisedCVL:
         
         # 3. Fit PCA (stable)
         print("Fitting PCA for dimensionality reduction...")
-        self.pca = PCA(n_components=64)
+        # Choose n_components adaptively so it is <= n_samples and <= n_features
+        n_samples, n_features = embeddings.shape[0], embeddings.shape[1]
+        desired_components = 64
+        actual_components = min(desired_components, n_samples, n_features)
+        if actual_components <= 0:
+            actual_components = min(desired_components, n_features)
+
+        self.pca = PCA(n_components=actual_components)
         compressed_embeddings = self.pca.fit_transform(embeddings)
         
         # 4. RESEARCH: Learn STABLE vector codebooks (no K-means!)
@@ -357,7 +384,7 @@ class UnsupervisedCVL:
         self.training_stats = {
             "num_messages": len(messages),
             "embedding_dim": self.embed_dim,
-            "compressed_dim": 64,
+            "compressed_dim": actual_components,
             "explained_variance": explained_variance,
             "message_types": len(unique_types),
             "priorities": len(unique_priorities),

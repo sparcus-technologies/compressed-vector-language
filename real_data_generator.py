@@ -1,3 +1,16 @@
+"""
+real_data_generator.py
+----------------------
+Provides utilities to synthesize realistic multi-agent communication
+messages for testing and benchmarking the compressed vector language
+(CVL) pipeline. Functions include generating single messages, creating
+datasets with realistic type distributions, saving datasets to JSON,
+and computing simple dataset statistics.
+
+This module is used by demo scripts to create inputs for training and
+evaluation.
+"""
+
 import json
 import random
 import time
@@ -84,17 +97,22 @@ class RealAgentDataGenerator:
             "finger_four", "combat_spread", "trail"
         ]
     
-    def generate_message(self, message_type: str = None) -> Dict[str, Any]:
-        """Generate a realistic agent message"""
+    def generate_message(self, message_type: str = None, agent_id: str | None = None, timestamp: float | None = None) -> Dict[str, Any]:
+        """Generate a realistic agent message.
+
+        If `agent_id` or `timestamp` are provided they override the defaults so
+        callers (for example `generate_dataset`) can control multi-agent
+        behavior and timing.
+        """
         if message_type is None:
             message_type = random.choice([
                 "navigation", "status", "obstacle", "coordination", "emergency"
             ])
         
-        # Base message structure
+        # Base message structure (caller can override agent_id/timestamp)
         message = {
-            "timestamp": time.time(),
-            "agent_id": f"agent_{random.randint(1, 100):03d}",
+            "timestamp": timestamp if timestamp is not None else time.time(),
+            "agent_id": agent_id if agent_id is not None else f"agent_{random.randint(1, 100):03d}",
             "message_type": message_type,
             "priority": random.choice(["low", "normal", "high", "critical"]),
             "mission_id": f"mission_{random.randint(1, 20):02d}"
@@ -159,10 +177,16 @@ class RealAgentDataGenerator:
         
         return message
     
-    def generate_dataset(self, num_messages: int = 1000) -> List[Dict[str, Any]]:
-        """Generate a dataset of realistic agent messages"""
+    def generate_dataset(self, num_messages: int = 1000, agent_count: int = 10, time_spacing: float = 0.1) -> List[Dict[str, Any]]:
+        """Generate a dataset of realistic agent messages with multiple agents and spaced timestamps.
+
+        Parameters
+        - num_messages: total messages to generate
+        - agent_count: number of distinct agents to include (use >=2 for coordination metrics)
+        - time_spacing: seconds between consecutive messages (used to compute durations/replanning speeds)
+        """
         dataset = []
-        
+
         # Distribution of message types (realistic)
         message_types = (
             ["navigation"] * 300 +  # 30% navigation
@@ -171,13 +195,19 @@ class RealAgentDataGenerator:
             ["obstacle"] * 150 +     # 15% obstacle reports
             ["emergency"] * 100      # 10% emergency
         )
-        
+
+        # Build list of agent ids to cycle through for diversity
+        agent_ids = [f"agent_{i+1:03d}" for i in range(max(1, agent_count))]
+        base_time = time.time()
+
         for i in range(num_messages):
             msg_type = random.choice(message_types)
-            message = self.generate_message(msg_type)
+            agent = agent_ids[i % len(agent_ids)]
+            timestamp = base_time + i * time_spacing
+            message = self.generate_message(msg_type, agent_id=agent, timestamp=timestamp)
             message["sequence_id"] = i
             dataset.append(message)
-        
+
         return dataset
     
     def save_dataset(self, dataset: List[Dict], filename: str = "agent_communications.json"):

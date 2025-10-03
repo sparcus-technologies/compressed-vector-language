@@ -1,3 +1,15 @@
+"""
+demo_unsupervised.py
+---------------------
+High-level demo script that exercises the UnsupervisedCVL pipeline using
+realistic agent communication data. It generates datasets, fits the
+unsupervised compression model, measures compression/decompression
+performance, benchmarks semantic preservation, and simulates a
+multi-agent swarm communication scenario.
+
+This file is intended as an end-to-end example and CLI entrypoint.
+"""
+
 import json
 import time
 import numpy as np
