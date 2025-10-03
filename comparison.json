@@ -1,0 +1,106 @@
+{
+  "acl": {
+    "NL": 2.7777777777777777,
+    "CVL": 2.7777777777777777,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "number_of_message_passing_rounds": {
+    "NL": 50,
+    "CVL": 50,
+    "Diff": 0,
+    "Pct_Change": 0.0
+  },
+  "replanning_speed": {
+    "NL": 0.05000000097313706,
+    "CVL": 0.05000000097313706,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "api_call_frequency": {
+    "NL": 50,
+    "CVL": 50,
+    "Diff": 0,
+    "Pct_Change": 0.0
+  },
+  "task_duration": {
+    "NL": 2.450000047683716,
+    "CVL": 2.450000047683716,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "token_usage": {
+    "NL": 31.26,
+    "CVL": 8.0,
+    "Diff": 23.26,
+    "Pct_Change": 74.40818937939859
+  },
+  "communication_overhead": {
+    "NL": 1563,
+    "CVL": 400,
+    "Diff": "N/A",
+    "Pct_Change": 0.0
+  },
+  "computational_efficiency_memory": {
+    "NL": 31.26,
+    "CVL": 8.0,
+    "Diff": 23.26,
+    "Pct_Change": 74.40818937939859
+  },
+  "coordination_effectiveness": {
+    "NL": 0.1,
+    "CVL": 0.1,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "observation_sharing_score": {
+    "NL": 0.44,
+    "CVL": 0.44,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "realtime_coordination_score": {
+    "NL": 0.44,
+    "CVL": 0.44,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "partial_success_rate": {
+    "NL": 100.0,
+    "CVL": 100.0,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "soft_evaluation_scores": {
+    "NL": -0.01646380577920655,
+    "CVL": 1.0,
+    "Diff": 1.0164638057792066,
+    "Pct_Change": -6173.929766973924
+  },
+  "damage_minimization": {
+    "NL": 0.0,
+    "CVL": 0.0,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "average_mistakes": {
+    "NL": 0.0,
+    "CVL": 0.0,
+    "Diff": 0.0,
+    "Pct_Change": 0.0
+  },
+  "error_types": {
+    "NL": {
+      "type_mismatch": 0,
+      "priority_mismatch": 0,
+      "other": 0
+    },
+    "CVL": {
+      "type_mismatch": 0,
+      "priority_mismatch": 0,
+      "other": 0
+    },
+    "Diff": "N/A",
+    "Pct_Change": 0.0
+  }
+}

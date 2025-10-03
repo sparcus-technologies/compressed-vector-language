@@ -1,0 +1,22 @@
+{
+  "acl": 2.7777777777777777,
+  "number_of_message_passing_rounds": 50,
+  "replanning_speed": 0.05000000097313706,
+  "api_call_frequency": 50,
+  "task_duration": 2.450000047683716,
+  "token_usage": 31.26,
+  "communication_overhead": 1563,
+  "computational_efficiency_memory": 31.26,
+  "coordination_effectiveness": 0.1,
+  "observation_sharing_score": 0.44,
+  "realtime_coordination_score": 0.44,
+  "partial_success_rate": 100.0,
+  "soft_evaluation_scores": -0.01646380577920655,
+  "damage_minimization": 0.0,
+  "average_mistakes": 0.0,
+  "error_types": {
+    "type_mismatch": 0,
+    "priority_mismatch": 0,
+    "other": 0
+  }
+}

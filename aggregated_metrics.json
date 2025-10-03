@@ -1,0 +1,68 @@
+{
+  "comparison": {
+    "acl": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "number_of_message_passing_rounds": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "replanning_speed": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "api_call_frequency": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "task_duration": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "token_usage": {
+      "mean_pct_change": 74.8736833030011,
+      "std_pct_change": 0.6719002303553921
+    },
+    "communication_overhead": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "computational_efficiency_memory": {
+      "mean_pct_change": 74.8736833030011,
+      "std_pct_change": 0.6719002303553921
+    },
+    "coordination_effectiveness": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "observation_sharing_score": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "realtime_coordination_score": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "partial_success_rate": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "soft_evaluation_scores": {
+      "mean_pct_change": 4837.68512135657,
+      "std_pct_change": 27590.42142547707
+    },
+    "damage_minimization": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "average_mistakes": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    },
+    "error_types": {
+      "mean_pct_change": 0.0,
+      "std_pct_change": 0.0
+    }
+  }
+}

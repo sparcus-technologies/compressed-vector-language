@@ -1,0 +1,1532 @@
+[
+  {
+    "nl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 33.28,
+      "communication_overhead": 1664,
+      "computational_efficiency_memory": 33.28,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.36,
+      "realtime_coordination_score": 0.58,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 0.0013377850032413896,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.36,
+      "realtime_coordination_score": 0.58,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.7777777777777777,
+        "CVL": 2.7777777777777777,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 33.28,
+        "CVL": 8.0,
+        "Diff": 25.28,
+        "Pct_Change": 75.96153846153845
+      },
+      "communication_overhead": {
+        "NL": 1664,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 33.28,
+        "CVL": 8.0,
+        "Diff": 25.28,
+        "Pct_Change": 75.96153846153845
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.36,
+        "CVL": 0.36,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.58,
+        "CVL": 0.58,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": 0.0013377850032413896,
+        "CVL": 1.0,
+        "Diff": 0.9986622149967586,
+        "Pct_Change": 74650.42683069756
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1000
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 31.5,
+      "communication_overhead": 1575,
+      "computational_efficiency_memory": 31.5,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.5,
+      "realtime_coordination_score": 0.4,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 0.010546559284738424,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.5,
+      "realtime_coordination_score": 0.4,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.7777777777777777,
+        "CVL": 2.7777777777777777,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 31.5,
+        "CVL": 8.0,
+        "Diff": 23.5,
+        "Pct_Change": 74.60317460317461
+      },
+      "communication_overhead": {
+        "NL": 1575,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 31.5,
+        "CVL": 8.0,
+        "Diff": 23.5,
+        "Pct_Change": 74.60317460317461
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.5,
+        "CVL": 0.5,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.4,
+        "CVL": 0.4,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": 0.010546559284738424,
+        "CVL": 1.0,
+        "Diff": 0.9894534407152615,
+        "Pct_Change": 9381.765313234115
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1001
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 31.62,
+      "communication_overhead": 1581,
+      "computational_efficiency_memory": 31.62,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.52,
+      "realtime_coordination_score": 0.38,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 0.006376245220800283,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.52,
+      "realtime_coordination_score": 0.38,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.7777777777777777,
+        "CVL": 2.7777777777777777,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 31.62,
+        "CVL": 8.0,
+        "Diff": 23.62,
+        "Pct_Change": 74.69955724225173
+      },
+      "communication_overhead": {
+        "NL": 1581,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 31.62,
+        "CVL": 8.0,
+        "Diff": 23.62,
+        "Pct_Change": 74.69955724225173
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.52,
+        "CVL": 0.52,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.38,
+        "CVL": 0.38,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": 0.006376245220800283,
+        "CVL": 1.0,
+        "Diff": 0.9936237547791997,
+        "Pct_Change": 15583.211127731534
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1002
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 31.04,
+      "communication_overhead": 1552,
+      "computational_efficiency_memory": 31.04,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.34,
+      "realtime_coordination_score": 0.52,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 0.015076315070918422,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.34,
+      "realtime_coordination_score": 0.52,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.7777777777777777,
+        "CVL": 2.7777777777777777,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 31.04,
+        "CVL": 8.0,
+        "Diff": 23.04,
+        "Pct_Change": 74.22680412371135
+      },
+      "communication_overhead": {
+        "NL": 1552,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 31.04,
+        "CVL": 8.0,
+        "Diff": 23.04,
+        "Pct_Change": 74.22680412371135
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.34,
+        "CVL": 0.34,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.52,
+        "CVL": 0.52,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": 0.015076315070918422,
+        "CVL": 1.0,
+        "Diff": 0.9849236849290816,
+        "Pct_Change": 6532.920546539638
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1003
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 31.0,
+      "communication_overhead": 1550,
+      "computational_efficiency_memory": 31.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.4,
+      "realtime_coordination_score": 0.48,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": -0.006178702397097146,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.4,
+      "realtime_coordination_score": 0.48,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.7777777777777777,
+        "CVL": 2.7777777777777777,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 31.0,
+        "CVL": 8.0,
+        "Diff": 23.0,
+        "Pct_Change": 74.19354838709677
+      },
+      "communication_overhead": {
+        "NL": 1550,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 31.0,
+        "CVL": 8.0,
+        "Diff": 23.0,
+        "Pct_Change": 74.19354838709677
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.4,
+        "CVL": 0.4,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.48,
+        "CVL": 0.48,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": -0.006178702397097146,
+        "CVL": 1.0,
+        "Diff": 1.0061787023970972,
+        "Pct_Change": -16284.628029176742
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1004
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.6315789473684212,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 32.14,
+      "communication_overhead": 1607,
+      "computational_efficiency_memory": 32.14,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.38,
+      "realtime_coordination_score": 0.48,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": -0.006270388140376025,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.6315789473684212,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.38,
+      "realtime_coordination_score": 0.48,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.6315789473684212,
+        "CVL": 2.6315789473684212,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 32.14,
+        "CVL": 8.0,
+        "Diff": 24.14,
+        "Pct_Change": 75.10889856876167
+      },
+      "communication_overhead": {
+        "NL": 1607,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 32.14,
+        "CVL": 8.0,
+        "Diff": 24.14,
+        "Pct_Change": 75.10889856876167
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.38,
+        "CVL": 0.38,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.48,
+        "CVL": 0.48,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": -0.006270388140376025,
+        "CVL": 1.0,
+        "Diff": 1.006270388140376,
+        "Pct_Change": -16047.97606803383
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1005
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.6315789473684212,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 31.16,
+      "communication_overhead": 1558,
+      "computational_efficiency_memory": 31.16,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.52,
+      "realtime_coordination_score": 0.42,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": -0.005008983474249209,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.6315789473684212,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.52,
+      "realtime_coordination_score": 0.42,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.6315789473684212,
+        "CVL": 2.6315789473684212,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 31.16,
+        "CVL": 8.0,
+        "Diff": 23.16,
+        "Pct_Change": 74.32605905006419
+      },
+      "communication_overhead": {
+        "NL": 1558,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 31.16,
+        "CVL": 8.0,
+        "Diff": 23.16,
+        "Pct_Change": 74.32605905006419
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.52,
+        "CVL": 0.52,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.42,
+        "CVL": 0.42,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": -0.005008983474249209,
+        "CVL": 1.0,
+        "Diff": 1.0050089834742493,
+        "Pct_Change": -20064.130549460217
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1006
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.9411764705882355,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 33.28,
+      "communication_overhead": 1664,
+      "computational_efficiency_memory": 33.28,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.36,
+      "realtime_coordination_score": 0.5,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 0.010143971243965644,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.9411764705882355,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.36,
+      "realtime_coordination_score": 0.5,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.9411764705882355,
+        "CVL": 2.9411764705882355,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 33.28,
+        "CVL": 8.0,
+        "Diff": 25.28,
+        "Pct_Change": 75.96153846153845
+      },
+      "communication_overhead": {
+        "NL": 1664,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 33.28,
+        "CVL": 8.0,
+        "Diff": 25.28,
+        "Pct_Change": 75.96153846153845
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.36,
+        "CVL": 0.36,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.5,
+        "CVL": 0.5,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": 0.010143971243965644,
+        "CVL": 1.0,
+        "Diff": 0.9898560287560344,
+        "Pct_Change": 9758.072109528812
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1007
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.6315789473684212,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 32.32,
+      "communication_overhead": 1616,
+      "computational_efficiency_memory": 32.32,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.32,
+      "realtime_coordination_score": 0.58,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": -0.011288108271890305,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.6315789473684212,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.32,
+      "realtime_coordination_score": 0.58,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.6315789473684212,
+        "CVL": 2.6315789473684212,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 32.32,
+        "CVL": 8.0,
+        "Diff": 24.32,
+        "Pct_Change": 75.24752475247524
+      },
+      "communication_overhead": {
+        "NL": 1616,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 32.32,
+        "CVL": 8.0,
+        "Diff": 24.32,
+        "Pct_Change": 75.24752475247524
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.32,
+        "CVL": 0.32,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.58,
+        "CVL": 0.58,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": -0.011288108271890305,
+        "CVL": 1.0,
+        "Diff": 1.0112881082718903,
+        "Pct_Change": -8958.88030052125
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1008
+  },
+  {
+    "nl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 31.26,
+      "communication_overhead": 1563,
+      "computational_efficiency_memory": 31.26,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.44,
+      "realtime_coordination_score": 0.44,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": -0.01646380577920655,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "cvl_metrics": {
+      "acl": 2.7777777777777777,
+      "number_of_message_passing_rounds": 50,
+      "replanning_speed": 0.05000000097313706,
+      "api_call_frequency": 50,
+      "task_duration": 2.450000047683716,
+      "token_usage": 8.0,
+      "communication_overhead": 400,
+      "computational_efficiency_memory": 8.0,
+      "coordination_effectiveness": 0.1,
+      "observation_sharing_score": 0.44,
+      "realtime_coordination_score": 0.44,
+      "partial_success_rate": 100.0,
+      "soft_evaluation_scores": 1.0,
+      "damage_minimization": 0.0,
+      "average_mistakes": 0.0,
+      "error_types": {
+        "type_mismatch": 0,
+        "priority_mismatch": 0,
+        "other": 0
+      }
+    },
+    "comparison": {
+      "acl": {
+        "NL": 2.7777777777777777,
+        "CVL": 2.7777777777777777,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "number_of_message_passing_rounds": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "replanning_speed": {
+        "NL": 0.05000000097313706,
+        "CVL": 0.05000000097313706,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "api_call_frequency": {
+        "NL": 50,
+        "CVL": 50,
+        "Diff": 0,
+        "Pct_Change": 0.0
+      },
+      "task_duration": {
+        "NL": 2.450000047683716,
+        "CVL": 2.450000047683716,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "token_usage": {
+        "NL": 31.26,
+        "CVL": 8.0,
+        "Diff": 23.26,
+        "Pct_Change": 74.40818937939859
+      },
+      "communication_overhead": {
+        "NL": 1563,
+        "CVL": 400,
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      },
+      "computational_efficiency_memory": {
+        "NL": 31.26,
+        "CVL": 8.0,
+        "Diff": 23.26,
+        "Pct_Change": 74.40818937939859
+      },
+      "coordination_effectiveness": {
+        "NL": 0.1,
+        "CVL": 0.1,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "observation_sharing_score": {
+        "NL": 0.44,
+        "CVL": 0.44,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "realtime_coordination_score": {
+        "NL": 0.44,
+        "CVL": 0.44,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "partial_success_rate": {
+        "NL": 100.0,
+        "CVL": 100.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "soft_evaluation_scores": {
+        "NL": -0.01646380577920655,
+        "CVL": 1.0,
+        "Diff": 1.0164638057792066,
+        "Pct_Change": -6173.929766973924
+      },
+      "damage_minimization": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "average_mistakes": {
+        "NL": 0.0,
+        "CVL": 0.0,
+        "Diff": 0.0,
+        "Pct_Change": 0.0
+      },
+      "error_types": {
+        "NL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "CVL": {
+          "type_mismatch": 0,
+          "priority_mismatch": 0,
+          "other": 0
+        },
+        "Diff": "N/A",
+        "Pct_Change": 0.0
+      }
+    },
+    "seed": 1009
+  }
+]
