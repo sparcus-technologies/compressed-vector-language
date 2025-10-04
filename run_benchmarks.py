@@ -4,12 +4,12 @@ CVL Benchmark Runner
 ====================
 Simple script to run comprehensive benchmarks for:
 1. Compressed Vector Language (CVL) compression efficiency
-2. Truth Token / Honesty Token system
+2. Semantic preservation testing
 3. 10 Task-specific evaluations
 
 Usage:
-    python run_benchmarks.py              # Full benchmarks (~3-5 minutes)
-    python run_benchmarks.py --quick      # Quick benchmarks (~1-2 minutes)
+    python run_benchmarks.py              # Full benchmarks (~2-3 minutes)
+    python run_benchmarks.py --quick      # Quick benchmarks (~1 minute)
     python run_benchmarks.py --help       # Show help
 """
 
@@ -29,7 +29,7 @@ def print_banner():
     ║                                                                   ║
     ║           CVL COMPREHENSIVE BENCHMARK SUITE                       ║
     ║                                                                   ║
-    ║   Testing Compressed Vector Language & Truth Token System        ║
+    ║        Testing Compressed Vector Language Performance            ║
     ║                                                                   ║
     ╚═══════════════════════════════════════════════════════════════════╝
     """
@@ -191,7 +191,7 @@ def print_quick_summary(results: dict):
     
     overall = results.get('overall_metrics', {})
     compression = results.get('compression_benchmarks', {})
-    truth = results.get('truth_token_benchmarks', {})
+    semantic = results.get('semantic_preservation', {})
     
     print(f"""
 📊 Overall CVL Score:        {overall.get('overall_cvl_score', 0):.1f}/100
@@ -204,11 +204,10 @@ def print_quick_summary(results: dict):
    • Avg Compression Time:   {compression.get('avg_compression_time_ms', 0):.2f}ms
    • Throughput:             {compression.get('throughput_messages_per_sec', 0):.1f} msg/sec
 
-🔐 Truth Token Metrics:
-   • Avg Honesty Score:      {truth.get('avg_honesty_score', 0):.3f}
-   • Honesty Rate:           {truth.get('honesty_rate', 0):.1%}
-   • Challenge Success:      {truth.get('challenge_success_rate', 0):.1%}
-   • Messages Processed:     {truth.get('messages_processed', 0)}
+🔍 Semantic Preservation:
+   • Cosine Similarity:      {semantic.get('avg_cosine_similarity', 0):.3f}
+   • Type Preservation:      {semantic.get('type_preservation_accuracy', 0):.1%}
+   • Overall Semantic:       {semantic.get('overall_semantic_score', 0):.3f}
 
 ⏱️  Total Time:              {results.get('benchmark_metadata', {}).get('total_execution_time_seconds', 0):.1f}s
     """)

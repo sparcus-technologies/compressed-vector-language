@@ -1,6 +1,6 @@
 """
 Comprehensive Benchmark Suite for CVL System
-Tests both Compressed Vector Language and Truth Token System
+Tests Compressed Vector Language compression efficiency and task performance
 """
 
 import numpy as np
@@ -10,7 +10,6 @@ import random
 from typing import Dict, List, Any, Tuple
 from unsupervised_cvl import UnsupervisedCVL, CompressedAgenticMessage
 from task_datasets import TaskDatasetGenerator
-from truth_token_system import TruthTokenSystem, TruthToken
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -18,7 +17,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 class CVLBenchmarkSuite:
     """
     Comprehensive benchmark suite for CVL system
-    Tests compression efficiency, semantic preservation, task performance, and truth tokens
+    Tests compression efficiency, semantic preservation, and task performance
     """
     
     def __init__(self, cvl_model: UnsupervisedCVL = None):
@@ -27,20 +26,17 @@ class CVLBenchmarkSuite:
         print("=" * 70)
         
         self.cvl = cvl_model if cvl_model else UnsupervisedCVL()
-        self.truth_system = TruthTokenSystem(verification_threshold=0.68)
         self.task_generator = TaskDatasetGenerator()
         self.sentence_model = SentenceTransformer("all-MiniLM-L6-v2")
         
         self.results = {
             'compression_benchmarks': {},
             'task_benchmarks': {},
-            'truth_token_benchmarks': {},
             'overall_metrics': {},
             'timestamp': time.time()
         }
         
         print("✓ CVL model loaded")
-        print("✓ Truth Token System initialized")
         print("✓ Task Generator ready")
         print("✓ Sentence Transformer loaded")
     
@@ -52,7 +48,7 @@ class CVLBenchmarkSuite:
         Tests: ratio, speed, throughput, space savings
         """
         print("\n" + "=" * 70)
-        print("[BENCHMARK 1/6] COMPRESSION RATIO & PERFORMANCE")
+        print("[BENCHMARK 1/4] COMPRESSION RATIO & PERFORMANCE")
         print("=" * 70)
         
         original_sizes = []
@@ -132,7 +128,7 @@ class CVLBenchmarkSuite:
         Tests: cosine similarity, metadata preservation, embedding quality
         """
         print("\n" + "=" * 70)
-        print("[BENCHMARK 2/6] SEMANTIC PRESERVATION")
+        print("[BENCHMARK 2/4] SEMANTIC PRESERVATION")
         print("=" * 70)
         
         similarities = []
@@ -317,7 +313,7 @@ class CVLBenchmarkSuite:
         Run benchmarks on all 10 task types
         """
         print("\n" + "=" * 70)
-        print("[BENCHMARK 3/6] TASK-SPECIFIC PERFORMANCE (10 Tasks)")
+        print("[BENCHMARK 3/4] TASK-SPECIFIC PERFORMANCE (10 Tasks)")
         print("=" * 70)
         
         print("Generating task datasets...")
@@ -343,214 +339,19 @@ class CVLBenchmarkSuite:
         
         return all_task_results
     
-    # ==================== PART 3: TRUTH TOKEN BENCHMARKS ====================
-    
-    def benchmark_truth_tokens(self, messages: List[Dict], num_samples: int = 50) -> Dict[str, Any]:
-        """
-        Benchmark the Truth Token / Honesty Token system
-        Tests: honesty scoring, verification, challenges, reputation
-        """
-        print("\n" + "=" * 70)
-        print("[BENCHMARK 4/6] TRUTH TOKEN SYSTEM")
-        print("=" * 70)
-        
-        print(f"Testing truth token system on {num_samples} messages...")
-        
-        honest_count = 0
-        dishonest_count = 0
-        challenges_issued = 0
-        challenges_valid = 0
-        
-        honesty_scores = []
-        confidence_scores = []
-        truth_scalars = []
-        verifications = []
-        
-        sample_msgs = messages[:num_samples]
-        agent_ids = [f"agent_{i % 5}" for i in range(num_samples)]  # 5 different agents
-        
-        for i, (msg, agent_id) in enumerate(zip(sample_msgs, agent_ids)):
-            try:
-                # Simulate varying agent confidence levels
-                confidence_levels = [0.5, 0.65, 0.75, 0.85, 0.95]
-                agent_confidence = random.choice(confidence_levels)
-                
-                # Create truth token
-                truth_token = self.truth_system.create_truth_token(
-                    msg['content'],
-                    agent_confidence,
-                    agent_id=agent_id
-                )
-                
-                honesty_scores.append(truth_token.honesty_score)
-                confidence_scores.append(truth_token.confidence)
-                truth_scalars.append(truth_token.to_scalar())
-                
-                # Simulate outcome (higher confidence → more likely correct)
-                # But not perfect to test calibration
-                outcome_probability = 0.6 + (agent_confidence * 0.3)
-                actual_outcome = random.random() < outcome_probability
-                
-                # Verify truth token
-                verification = self.truth_system.verify_truth_token(
-                    truth_token,
-                    msg['content'],
-                    actual_outcome
-                )
-                
-                verifications.append(verification)
-                
-                if verification['is_honest']:
-                    honest_count += 1
-                else:
-                    dishonest_count += 1
-                
-                # Simulate challenges on suspicious tokens
-                if truth_token.honesty_score < 0.65:
-                    challenger_id = f"agent_{(i + 1) % 5}"
-                    challenge_result = self.truth_system.challenge_agent(
-                        challenger_id,
-                        truth_token,
-                        {"evidence": "disputed_claim", "contradiction_score": 0.8}
-                    )
-                    challenges_issued += 1
-                    if challenge_result['challenge_valid']:
-                        challenges_valid += 1
-                
-                # Progress
-                if (i + 1) % 10 == 0:
-                    print(f"  Progress: {i+1}/{num_samples}...")
-                
-            except Exception as e:
-                print(f"  Warning: Error with message {i}: {e}")
-                continue
-        
-        # Get system-wide reputation
-        overall_reputation = self.truth_system.get_agent_reputation()
-        
-        # Calculate metrics
-        results = {
-            'total_messages': num_samples,
-            'messages_processed': len(honesty_scores),
-            'avg_honesty_score': np.mean(honesty_scores) if honesty_scores else 0.0,
-            'std_honesty_score': np.std(honesty_scores) if honesty_scores else 0.0,
-            'min_honesty_score': np.min(honesty_scores) if honesty_scores else 0.0,
-            'max_honesty_score': np.max(honesty_scores) if honesty_scores else 0.0,
-            'avg_confidence': np.mean(confidence_scores) if confidence_scores else 0.0,
-            'avg_truth_scalar': np.mean(truth_scalars) if truth_scalars else 0.0,
-            'honest_messages': honest_count,
-            'dishonest_messages': dishonest_count,
-            'honesty_rate': honest_count / len(verifications) if verifications else 0.0,
-            'challenges_issued': challenges_issued,
-            'challenges_valid': challenges_valid,
-            'challenge_success_rate': challenges_valid / challenges_issued if challenges_issued > 0 else 0.0,
-            'verification_accuracy': sum(1 for v in verifications if v['is_honest'] and v['confidence_calibrated']) / len(verifications) if verifications else 0.0,
-            'reputation_metrics': overall_reputation
-        }
-        
-        # Print results
-        print(f"\n{'Metric':<40} {'Value':>15}")
-        print("-" * 70)
-        print(f"{'Messages Processed':<40} {results['messages_processed']:>15}")
-        print(f"{'Avg Honesty Score':<40} {results['avg_honesty_score']:>15.3f}")
-        print(f"{'Honesty Score Range':<40} {results['min_honesty_score']:.3f} - {results['max_honesty_score']:.3f}")
-        print(f"{'Avg Confidence':<40} {results['avg_confidence']:>15.3f}")
-        print(f"{'Avg Truth Scalar':<40} {results['avg_truth_scalar']:>15.3f}")
-        print(f"{'Honest Messages':<40} {results['honest_messages']:>15}")
-        print(f"{'Dishonest Messages':<40} {results['dishonest_messages']:>15}")
-        print(f"{'Honesty Rate':<40} {results['honesty_rate']:>14.1%}")
-        print(f"{'Challenges Issued':<40} {results['challenges_issued']:>15}")
-        print(f"{'Challenge Success Rate':<40} {results['challenge_success_rate']:>14.1%}")
-        print(f"{'Verification Accuracy':<40} {results['verification_accuracy']:>14.1%}")
-        
-        return results
-    
-    def benchmark_truth_token_integration(self, messages: List[Dict], num_samples: int = 20) -> Dict[str, Any]:
-        """
-        Benchmark integration of truth tokens with CVL compression
-        Tests: truth token appending, preservation, decoding
-        """
-        print("\n" + "=" * 70)
-        print("[BENCHMARK 5/6] TRUTH TOKEN + CVL INTEGRATION")
-        print("=" * 70)
-        
-        print(f"Testing integrated truth token + CVL on {num_samples} messages...")
-        
-        integration_results = {
-            'messages_tested': 0,
-            'successful_integrations': 0,
-            'avg_total_size_bytes': 0.0,
-            'truth_scalar_preserved': 0,
-            'compression_with_truth_token': []
-        }
-        
-        total_sizes = []
-        
-        for i, msg in enumerate(messages[:num_samples]):
-            try:
-                # Create truth token
-                agent_confidence = random.uniform(0.6, 0.95)
-                truth_token = self.truth_system.create_truth_token(
-                    msg['content'],
-                    agent_confidence,
-                    agent_id=f"agent_{i}"
-                )
-                
-                # Compress message
-                compressed = self.cvl.compress_message(msg)
-                
-                # Get truth scalar
-                truth_scalar = truth_token.to_scalar()
-                
-                # Calculate total size (compressed + truth token)
-                compressed_size = len(compressed.to_bytes())
-                truth_token_size = 4  # Assuming 32-bit float
-                total_size = compressed_size + truth_token_size
-                
-                total_sizes.append(total_size)
-                
-                integration_results['messages_tested'] += 1
-                integration_results['successful_integrations'] += 1
-                
-                # Store details
-                integration_results['compression_with_truth_token'].append({
-                    'compressed_size': compressed_size,
-                    'truth_token_size': truth_token_size,
-                    'total_size': total_size,
-                    'truth_scalar': truth_scalar,
-                    'honesty_score': truth_token.honesty_score
-                })
-                
-            except Exception as e:
-                integration_results['messages_tested'] += 1
-                continue
-        
-        integration_results['avg_total_size_bytes'] = np.mean(total_sizes) if total_sizes else 0.0
-        integration_results['integration_success_rate'] = integration_results['successful_integrations'] / integration_results['messages_tested'] if integration_results['messages_tested'] > 0 else 0.0
-        
-        print(f"\n{'Metric':<40} {'Value':>15}")
-        print("-" * 70)
-        print(f"{'Messages Tested':<40} {integration_results['messages_tested']:>15}")
-        print(f"{'Successful Integrations':<40} {integration_results['successful_integrations']:>15}")
-        print(f"{'Integration Success Rate':<40} {integration_results['integration_success_rate']:>14.1%}")
-        print(f"{'Avg Total Size (CVL + Truth Token)':<40} {integration_results['avg_total_size_bytes']:>12.1f} bytes")
-        
-        return integration_results
-    
-    # ==================== PART 4: OVERALL EVALUATION ====================
+    # ==================== PART 3: OVERALL EVALUATION ====================
     
     def calculate_overall_score(self) -> Dict[str, Any]:
         """
         Calculate overall CVL system score (0-100) with letter grade
         """
         print("\n" + "=" * 70)
-        print("[BENCHMARK 6/6] OVERALL SYSTEM EVALUATION")
+        print("[BENCHMARK 4/4] OVERALL SYSTEM EVALUATION")
         print("=" * 70)
         
         compression = self.results['compression_benchmarks']
         semantic = self.results['semantic_preservation']
         tasks = self.results['task_benchmarks']
-        truth = self.results['truth_token_benchmarks']
         
         # Component scores (0-100)
         # Compression score: ratio >= 20x = 100, linear scale
@@ -563,15 +364,11 @@ class CVLBenchmarkSuite:
         task_accuracies = [t['accuracy_rate'] for t in tasks.values()]
         task_score = np.mean(task_accuracies) * 100 if task_accuracies else 0.0
         
-        # Truth token score: combination of honesty rate and challenge accuracy
-        truth_score = (truth['honesty_rate'] * 0.6 + truth['challenge_success_rate'] * 0.4) * 100
-        
-        # Weighted overall score
+        # Weighted overall score (without truth tokens for now)
         overall_score = (
-            compression_score * 0.30 +  # 30% weight
-            semantic_score * 0.25 +      # 25% weight
-            task_score * 0.25 +           # 25% weight
-            truth_score * 0.20            # 20% weight
+            compression_score * 0.40 +  # 40% weight
+            semantic_score * 0.30 +      # 30% weight
+            task_score * 0.30            # 30% weight
         )
         
         # Letter grade
@@ -594,7 +391,6 @@ class CVLBenchmarkSuite:
             'compression_score': compression_score,
             'semantic_score': semantic_score,
             'task_performance_score': task_score,
-            'truth_token_score': truth_score,
             'letter_grade': grade,
             'performance_rating': rating,
             'timestamp': time.time()
@@ -606,7 +402,6 @@ class CVLBenchmarkSuite:
         print(f"{'Compression Performance':<40} {compression_score:>9.1f}/100")
         print(f"{'Semantic Preservation':<40} {semantic_score:>9.1f}/100")
         print(f"{'Task Performance':<40} {task_score:>9.1f}/100")
-        print(f"{'Truth Token System':<40} {truth_score:>9.1f}/100")
         print("=" * 70)
         print(f"{'OVERALL CVL SCORE':<40} {overall_score:>9.1f}/100")
         print(f"{'LETTER GRADE':<40} {grade:>10}")
@@ -669,8 +464,6 @@ class CVLBenchmarkSuite:
         compression_samples = 50 if quick_mode else 100
         semantic_samples = 25 if quick_mode else 50
         task_samples = 15 if quick_mode else 30
-        truth_samples = 25 if quick_mode else 50
-        integration_samples = 10 if quick_mode else 20
         
         # Run benchmark components
         try:
@@ -686,15 +479,7 @@ class CVLBenchmarkSuite:
             task_results = self.benchmark_all_tasks(samples_per_task=task_samples)
             self.results['task_benchmarks'] = task_results
             
-            # 4. Truth token system
-            truth_results = self.benchmark_truth_tokens(messages[:truth_samples])
-            self.results['truth_token_benchmarks'] = truth_results
-            
-            # 5. Integration test
-            integration_results = self.benchmark_truth_token_integration(messages[:integration_samples])
-            self.results['truth_token_integration'] = integration_results
-            
-            # 6. Overall evaluation
+            # 4. Overall evaluation
             overall_metrics = self.calculate_overall_score()
             self.results['overall_metrics'] = overall_metrics
             
@@ -725,7 +510,7 @@ class CVLBenchmarkSuite:
         
         overall = self.results['overall_metrics']
         compression = self.results['compression_benchmarks']
-        truth = self.results['truth_token_benchmarks']
+        semantic = self.results['semantic_preservation']
         
         print(f"\n{'='*70}")
         print(f"{'🏆 FINAL RESULTS':^70}")
@@ -737,8 +522,8 @@ class CVLBenchmarkSuite:
         print(f"  • Compression Ratio: {compression['compression_ratio']:.1f}x")
         print(f"  • Space Savings: {compression['space_savings_percent']:.1f}%")
         print(f"  • Compression Speed: {compression['avg_compression_time_ms']:.2f}ms")
-        print(f"  • Honesty Rate: {truth['honesty_rate']:.1%}")
-        print(f"  • Challenge Success: {truth['challenge_success_rate']:.1%}")
+        print(f"  • Semantic Similarity: {semantic['avg_cosine_similarity']:.3f}")
+        print(f"  • Type Preservation: {semantic['type_preservation_accuracy']:.1%}")
         print(f"\n{'Total Execution Time:':<40} {execution_time:>12.1f}s")
         
         # Recommendations
@@ -746,19 +531,19 @@ class CVLBenchmarkSuite:
         score = overall['overall_cvl_score']
         if score >= 85:
             print("  ✓ Excellent performance! CVL system is production-ready.")
-            print("  ✓ Both compression and truth tokens are working well.")
+            print("  ✓ Compression and semantic preservation are working well.")
         elif score >= 75:
             print("  → Good performance overall.")
             if overall['compression_score'] < 75:
                 print("  → Consider optimizing compression ratio.")
-            if overall['truth_token_score'] < 75:
-                print("  → Consider tuning truth token parameters.")
+            if overall['semantic_score'] < 75:
+                print("  → Consider improving semantic preservation.")
         elif score >= 65:
             print("  ⚠ Satisfactory but room for improvement.")
             print("  → Focus on semantic preservation and task performance.")
         else:
             print("  ⚠ Needs significant improvement.")
-            print("  → Review compression algorithms and truth token logic.")
+            print("  → Review compression algorithms and semantic preservation.")
         
         print("=" * 70)
     
