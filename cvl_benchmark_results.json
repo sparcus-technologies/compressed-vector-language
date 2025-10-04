@@ -1,0 +1,338 @@
+{
+  "compression_benchmarks": {
+    "avg_original_size_bytes": 224.12,
+    "avg_compressed_size_bytes": 8.0,
+    "compression_ratio": 28.015,
+    "space_savings_percent": 96.43048366946279,
+    "avg_compression_time_ms": 22.5239896774292,
+    "avg_decompression_time_ms": 0.030086040496826172,
+    "total_compression_time_ms": 2252.39896774292,
+    "throughput_messages_per_sec": 44.39710789789955,
+    "success_rate": 1.0,
+    "messages_tested": 100
+  },
+  "task_benchmarks": {
+    "arithmetic": {
+      "task_type": "arithmetic",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 14.904166666666667,
+      "avg_compression_time_ms": 19.260485967000324,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 13.75,
+      "max_compression_ratio": 17.75
+    },
+    "summarization": {
+      "task_type": "summarization",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 50.52916666666667,
+      "avg_compression_time_ms": 25.350157419840496,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 44.75,
+      "max_compression_ratio": 63.625
+    },
+    "paraphrasing": {
+      "task_type": "paraphrasing",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 16.9125,
+      "avg_compression_time_ms": 18.87669563293457,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 15.75,
+      "max_compression_ratio": 19.25
+    },
+    "sentence_completion": {
+      "task_type": "sentence_completion",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 17.595833333333335,
+      "avg_compression_time_ms": 18.010481198628742,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 15.5,
+      "max_compression_ratio": 19.0
+    },
+    "classification": {
+      "task_type": "classification",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 17.329166666666666,
+      "avg_compression_time_ms": 17.154399553934734,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 15.875,
+      "max_compression_ratio": 18.75
+    },
+    "translation": {
+      "task_type": "translation",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 13.420833333333333,
+      "avg_compression_time_ms": 16.200757026672363,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 12.75,
+      "max_compression_ratio": 14.125
+    },
+    "qa_factual": {
+      "task_type": "qa_factual",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 16.304166666666667,
+      "avg_compression_time_ms": 17.049940427144367,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 14.0,
+      "max_compression_ratio": 18.625
+    },
+    "commonsense": {
+      "task_type": "commonsense",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 15.645833333333334,
+      "avg_compression_time_ms": 16.355538368225098,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 13.875,
+      "max_compression_ratio": 18.625
+    },
+    "analogies": {
+      "task_type": "analogies",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 16.295833333333334,
+      "avg_compression_time_ms": 16.67778491973877,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 15.875,
+      "max_compression_ratio": 17.375
+    },
+    "entity_extraction": {
+      "task_type": "entity_extraction",
+      "total_samples": 30,
+      "samples_tested": 30,
+      "compressed_accurately": 0,
+      "avg_compression_ratio": 21.841666666666665,
+      "avg_compression_time_ms": 17.558964093526203,
+      "task_specific_metrics": {},
+      "accuracy_rate": 0.0,
+      "min_compression_ratio": 20.375,
+      "max_compression_ratio": 23.375
+    }
+  },
+  "truth_token_benchmarks": {
+    "total_messages": 50,
+    "messages_processed": 50,
+    "avg_honesty_score": 0.8147999999999999,
+    "std_honesty_score": 0.06503045440407133,
+    "min_honesty_score": 0.75,
+    "max_honesty_score": 0.9800000000000001,
+    "avg_confidence": 0.7440000000000001,
+    "avg_truth_scalar": 0.78648,
+    "honest_messages": 43,
+    "dishonest_messages": 7,
+    "honesty_rate": 0.86,
+    "challenges_issued": 0,
+    "challenges_valid": 0,
+    "challenge_success_rate": 0.0,
+    "verification_accuracy": 0.86,
+    "reputation_metrics": {
+      "avg_honesty_score": 0.8147999999999999,
+      "avg_confidence": 0.7440000000000001,
+      "total_messages": 50,
+      "total_agents": 5,
+      "challenges_issued": 50
+    }
+  },
+  "overall_metrics": {
+    "overall_cvl_score": 40.32,
+    "compression_score": 100,
+    "semantic_score": 0.0,
+    "task_performance_score": 0.0,
+    "truth_token_score": 51.6,
+    "letter_grade": "F",
+    "performance_rating": "Needs Improvement",
+    "timestamp": 1759602900.2573197
+  },
+  "timestamp": 1759602890.273449,
+  "semantic_preservation": {
+    "avg_cosine_similarity": 0.0,
+    "min_cosine_similarity": 0.0,
+    "max_cosine_similarity": 0.0,
+    "std_cosine_similarity": 0.0,
+    "avg_embedding_distance": 0.0,
+    "type_preservation_accuracy": 1.0,
+    "priority_preservation_accuracy": 1.0,
+    "overall_semantic_score": 0.0,
+    "samples_tested": 50,
+    "successful_comparisons": 0
+  },
+  "truth_token_integration": {
+    "messages_tested": 20,
+    "successful_integrations": 20,
+    "avg_total_size_bytes": 12.0,
+    "truth_scalar_preserved": 0,
+    "compression_with_truth_token": [
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.9032487501100717,
+        "honesty_score": 0.93
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.867580804297869,
+        "honesty_score": 0.85
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7288235894383037,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.858874476946756,
+        "honesty_score": 0.85
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7758435823898373,
+        "honesty_score": 0.78
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7414944209340486,
+        "honesty_score": 0.78
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7815821630570864,
+        "honesty_score": 0.8
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7898962807655479,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7708291009220489,
+        "honesty_score": 0.8300000000000001
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.737018655126984,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.8930237565906444,
+        "honesty_score": 0.88
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7492808720720736,
+        "honesty_score": 0.8300000000000001
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7111162921218321,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7436249409403872,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7113927373208007,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7199534027948382,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7660815054257506,
+        "honesty_score": 0.78
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7543233947453316,
+        "honesty_score": 0.78
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.755229402469161,
+        "honesty_score": 0.75
+      },
+      {
+        "compressed_size": 8,
+        "truth_token_size": 4,
+        "total_size": 12,
+        "truth_scalar": 0.7167171994817019,
+        "honesty_score": 0.78
+      }
+    ],
+    "integration_success_rate": 1.0
+  },
+  "benchmark_metadata": {
+    "total_execution_time_seconds": 9.984870910644531,
+    "messages_used": 1000,
+    "quick_mode": false,
+    "completion_time": "2025-10-05 02:35:00"
+  }
+}
