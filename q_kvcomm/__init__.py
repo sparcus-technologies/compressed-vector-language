@@ -1,16 +1,18 @@
 """Q-KVComm: Quantized Key-Value Communication for Multi-Agent LLMs"""
 
-from .config import QKVCommConfig
-from .quantization import QuantizationEngine
 from .calibration import CalibrationModule
-from .kv_manager import KVCacheManager
+from .config import QKVCommConfig
+from .entity_extraction import EntityExtractor
 from .integration import QKVCommSystem
+from .kv_manager import KVCacheManager
+from .quantization import QuantizationEngine
 
 __version__ = "1.0.0"
 __all__ = [
     "QKVCommConfig",
-    "QuantizationEngine", 
+    "QuantizationEngine",
     "CalibrationModule",
     "KVCacheManager",
-    "QKVCommSystem"
+    "QKVCommSystem",
+    "EntityExtractor",
 ]

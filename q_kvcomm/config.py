@@ -33,7 +33,16 @@ class QKVCommConfig:
     use_cache: bool = True
 
     # Mode selection
-    mode: Literal["baseline", "quantization_only", "full"] = "full"
+    mode: Literal["baseline", "quantization_only", "full", "hybrid"] = "full"
+
+    # Hybrid mode settings (text + KV)
+    hybrid_entity_extraction: Literal[
+        "simple", "attention", "qa", "summarization", "yake", "attention_queryless"
+    ] = "yake"  # Default to YAKE for query-independent extraction
+    hybrid_max_entity_tokens: int = 20  # Max tokens for extracted entities
+    hybrid_qa_model: str = (
+        "deepset/tinyroberta-squad2"  # QA model for extraction (when method="qa")
+    )
 
     def __post_init__(self):
         """Validate configuration"""
@@ -53,6 +62,9 @@ class QKVCommConfig:
             self.calibration_enabled = False
         elif self.mode == "quantization_only":
             self.calibration_enabled = False
+        elif self.mode == "hybrid":
+            # Hybrid uses both text and KV
+            pass  # Keep quantization and calibration enabled
 
     @property
     def compression_ratio(self) -> float:
