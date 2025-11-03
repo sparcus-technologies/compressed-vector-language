@@ -1,18 +1,24 @@
-"""Q-KVComm: Quantized Key-Value Communication for Multi-Agent LLMs"""
+"""Q-KVComm: Quantized KV Cache Communication for Efficient LLM Agents"""
 
-from .calibration import CalibrationModule
 from .config import QKVCommConfig
-from .entity_extraction import EntityExtractor
-from .integration import QKVCommSystem
-from .kv_manager import KVCacheManager
 from .quantization import QuantizationEngine
+from .calibration import CalibrationModule
+from .kv_manager import KVCacheManager
+from .integration import QKVCommSystem
+from .adaptive_extraction import InformationExtractor, ContextTypeDetector, ExtractedFact
+from .memory_manager import MemoryManager, AdaptiveCompressionManager
 
-__version__ = "1.0.0"
+__version__ = "0.2.0"
+
 __all__ = [
     "QKVCommConfig",
     "QuantizationEngine",
     "CalibrationModule",
     "KVCacheManager",
     "QKVCommSystem",
-    "EntityExtractor",
+    "InformationExtractor",
+    "ContextTypeDetector",
+    "ExtractedFact",
+    "MemoryManager",
+    "AdaptiveCompressionManager",
 ]
