@@ -1,0 +1,30 @@
+{
+  "coqa": [
+    {
+      "id": "coqa_0",
+      "dataset": "coqa",
+      "question": "What color was Cotton?",
+      "prediction": "And so, Cotton's mommy painted her again, this time with a little bit of white paint. Cotton's mommy said \"Now you are the only white one in the bunch, Cotton. You are beautiful just",
+      "ground_truth": "white",
+      "is_answerable": true,
+      "contextual_relevance": 0.6386756896972656,
+      "answer_completeness": 1.0,
+      "semantic_fidelity": 0.38288676738739014,
+      "response_coherence": 0.9470588235294117,
+      "communication_efficiency": 1.0,
+      "information_throughput": 0.020100626006210463,
+      "compression_quality_score": 1.0,
+      "semantic_preservation": 1.0,
+      "inference_time": 49.74969434738159,
+      "compression_ratio": 1.0,
+      "layers_transmitted": 15,
+      "bits_original": 47554560,
+      "bits_compressed": 47554560,
+      "bits_saved": 0,
+      "baseline_prediction": "And so, Cotton's mommy painted her again, this time with a little bit of white paint. Cotton's mommy said \"Now you are the only white one in the bunch, Cotton. You are beautiful just",
+      "baseline_time": 54.228556871414185,
+      "using_semantic_model": true,
+      "success": true
+    }
+  ]
+}

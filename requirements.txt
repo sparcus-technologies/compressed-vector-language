@@ -1,22 +1,18 @@
-torch>=2.0.0
-transformers>=4.35.0
-numpy>=1.24.0,<2.0
-tqdm>=4.65.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
-pandas>=2.0.0
-
-# Information extraction (REQUIRED)
-yake>=0.4.8
-
-# Advanced extraction (OPTIONAL but recommended)
-spacy>=3.5.0
-# Run after install: python -m spacy download en_core_web_sm
-
-# Evaluation
-rouge-score>=0.1.2
-bert-score>=0.3.13
-
-# Development
-pytest>=7.3.0
-black>=23.0.0
+torch
+transformers
+numpy
+tqdm
+matplotlib
+seaborn
+pandas
+yake
+spacy # Run "python -m spacy download en_core_web_sm" after installing spacy
+rouge-score
+bert-score
+sentence-transformers
+scikit-learn
+pytest
+black
+flake8
+mypy
+datasets
