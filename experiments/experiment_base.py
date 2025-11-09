@@ -28,17 +28,29 @@ class ExperimentBase:
         self.output_dir = Path(output_dir)
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        self.device = (
-            device
-            if device != "auto"
-            else ("cuda" if torch.cuda.is_available() else "cpu")
-        )
+        # Auto-detect best available device
+        if device == "auto":
+            if torch.cuda.is_available():
+                self.device = "cuda"
+            elif torch.backends.mps.is_available():
+                self.device = "mps"  # Apple Silicon GPU
+            else:
+                self.device = "cpu"
+        else:
+            self.device = device
+
         self.max_samples = max_samples_per_dataset
         self.seed = seed
 
         # Set random seeds
         torch.manual_seed(seed)
         np.random.seed(seed)
+
+        print(f"💻 Device: {self.device}")
+        if self.device == "mps":
+            print("   Using Apple Silicon GPU acceleration")
+        elif self.device == "cpu":
+            print("   Running on CPU (slower but works everywhere)")
 
     def print_header(self, title: str):
         """Print experiment header"""

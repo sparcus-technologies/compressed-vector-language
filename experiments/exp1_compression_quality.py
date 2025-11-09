@@ -5,7 +5,7 @@ Tests different compression levels (target bits) and measures quality preservati
 Shows the relationship between compression ratio and answer quality metrics.
 
 Usage:
-    python exp1_compression_quality.py --max-samples 100
+    python exp1_compression_quality.py --max-samples 50 --device auto
 """
 
 import argparse
@@ -36,14 +36,25 @@ class CompressionQualityExperiment(ExperimentBase):
         target_bits_list = [4.0, 6.0, 8.0]
         results = []
 
-        # Load model
+        # Load model - FIXED for CPU/MPS compatibility
         print(f"\nLoading model: {model_name}...")
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         tokenizer.pad_token = tokenizer.eos_token
 
+        # Determine dtype based on device
+        if self.device == "cuda":
+            dtype = torch.float16
+        elif self.device == "mps":
+            dtype = torch.float32  # MPS doesn't support float16 well
+        else:  # cpu
+            dtype = torch.float32
+
+        print(f"Using device: {self.device}, dtype: {dtype}")
+
         model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
+            torch_dtype=dtype,
+            low_cpu_mem_usage=True
         ).to(self.device)
         model.tokenizer = tokenizer
         print("✓ Model loaded\n")
@@ -68,66 +79,59 @@ class CompressionQualityExperiment(ExperimentBase):
                 device=self.device,
             )
 
-            # Run benchmark
+            # Run benchmark - ⭐ FIXED: Disable baseline to avoid overflow
             benchmark = BenchmarkSuite(
                 qkvcomm_system=qkvcomm_system,
                 output_dir=str(self.output_dir / f"exp1_bits_{target_bits}"),
-                enable_baseline=True,
+                enable_baseline=False,  # Disabled to avoid memory overflow
             )
 
             benchmark.run_benchmark(
                 dataset_names=["squad", "hotpot_qa", "narrativeqa"],
-                max_samples=min(50, self.max_samples),
+                max_samples=min(self.max_samples, 50),
             )
 
             # Get results from benchmark.results
             dataset_results = benchmark.results
 
-            # Aggregate results
+            # ⭐ FIXED: Aggregate results WITH target_bits column
             for dataset_name, dataset_metrics in dataset_results.items():
                 successful = [r for r in dataset_metrics if r.get("success", False)]
                 if successful:
-                    results.append(
-                        {
-                            "target_bits": target_bits,
-                            "dataset": dataset_name,
-                            "num_samples": len(successful),
-                            "contextual_relevance": np.mean(
-                                [r["contextual_relevance"] for r in successful]
-                            ),
-                            "answer_completeness": np.mean(
-                                [r["answer_completeness"] for r in successful]
-                            ),
-                            "semantic_fidelity": np.mean(
-                                [r["semantic_fidelity"] for r in successful]
-                            ),
-                            "response_coherence": np.mean(
-                                [r["response_coherence"] for r in successful]
-                            ),
-                            "compression_ratio": np.mean(
-                                [r["compression_ratio"] for r in successful]
-                            ),
-                            "bandwidth_saved_mb": np.sum(
-                                [r["bits_saved"] for r in successful]
-                            )
-                            / 1e6,  # Convert bits to MB
-                            "avg_inference_time": np.mean(
-                                [r["inference_time"] for r in successful]
-                            ),
-                            "compression_quality": np.mean(
-                                [
-                                    r.get("compression_quality_score", 1.0)
-                                    for r in successful
-                                ]
-                            ),
-                            "semantic_preservation": np.mean(
-                                [
-                                    r.get("semantic_preservation", 1.0)
-                                    for r in successful
-                                ]
-                            ),
-                        }
-                    )
+                    result_row = {
+                        "target_bits": target_bits,  # ⭐ CRITICAL: Include this!
+                        "dataset": dataset_name,
+                        "num_samples": len(successful),
+                        "contextual_relevance": np.mean(
+                            [r["contextual_relevance"] for r in successful]
+                        ),
+                        "answer_completeness": np.mean(
+                            [r["answer_completeness"] for r in successful]
+                        ),
+                        "semantic_fidelity": np.mean(
+                            [r["semantic_fidelity"] for r in successful]
+                        ),
+                        "response_coherence": np.mean(
+                            [r["response_coherence"] for r in successful]
+                        ),
+                        "compression_ratio": np.mean(
+                            [r["compression_ratio"] for r in successful]
+                        ),
+                        "bandwidth_saved_mb": np.sum(
+                            [r["bits_saved"] for r in successful]
+                        ) / 1e6,  # Convert bits to MB
+                        "avg_inference_time": np.mean(
+                            [r["inference_time"] for r in successful]
+                        ),
+                        "communication_efficiency": np.mean(
+                            [r.get("communication_efficiency", 0) for r in successful]
+                        ),
+                        "information_throughput": np.mean(
+                            [r.get("information_throughput", 0) for r in successful]
+                        ),
+                    }
+                    
+                    results.append(result_row)
 
         # Save results
         df = pd.DataFrame(results)
@@ -135,19 +139,22 @@ class CompressionQualityExperiment(ExperimentBase):
         df.to_csv(output_file, index=False)
         print(f"\n✓ Results saved to {output_file}")
 
-        # Summary
+        # ⭐ FIXED: Safe summary with column check
         print("\n📊 Summary:")
-        print(
-            df.groupby("target_bits")
-            .agg(
+        if 'target_bits' in df.columns and len(df) > 0:
+            summary = df.groupby("target_bits").agg(
                 {
                     "contextual_relevance": "mean",
                     "compression_ratio": "mean",
                     "bandwidth_saved_mb": "sum",
                 }
-            )
-            .round(4)
-        )
+            ).round(4)
+            print(summary)
+        else:
+            print("⚠ Warning: No valid results or missing 'target_bits' column")
+            if len(df) > 0:
+                print("\nDataFrame preview:")
+                print(df.head())
 
         return df
 
@@ -166,7 +173,7 @@ def main():
         "--device",
         type=str,
         default="auto",
-        choices=["auto", "cuda", "cpu"],
+        choices=["auto", "cuda", "cpu", "mps"],
         help="Device to run experiment on",
     )
     parser.add_argument(
