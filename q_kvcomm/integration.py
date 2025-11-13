@@ -5,7 +5,6 @@ import struct
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
-import numpy as np
 import torch
 
 from .adaptive_extraction import ContextTypeDetector, InformationExtractor
@@ -202,7 +201,7 @@ Answer:"""
 
     def _pack_quantized_tensor(self, tensor: torch.Tensor, num_bits: int) -> bytes:
         """
-        ⭐ FIXED: Chunk-based packing to avoid NumPy memory limits
+        Pure PyTorch implementation - no NumPy required
         
         Args:
             tensor: Quantized integer tensor (int32)
@@ -211,77 +210,62 @@ Answer:"""
         Returns:
             Packed bytes
         """
-        # Work directly on CPU tensor to avoid data transfer overhead
+        # Work directly on CPU tensor
         if tensor.is_cuda or tensor.device.type == 'mps':
             tensor = tensor.cpu()
         
-        shape = tensor.shape
         total_elements = tensor.numel()
-        
-        # Process in chunks to avoid memory issues (1M elements per chunk)
-        chunk_size = 1_000_000
+        tensor_flat = tensor.flatten().to(torch.int32)
         
         if num_bits == 8:
-            # 8-bit: direct conversion chunk-by-chunk
-            result_bytes = bytearray()
-            tensor_flat = tensor.flatten()
-            
-            for i in range(0, total_elements, chunk_size):
-                chunk = tensor_flat[i:i+chunk_size]
-                result_bytes.extend(chunk.numpy().astype(np.uint8).tobytes())
-            
-            return bytes(result_bytes)
+            # 8-bit: direct conversion
+            # Clamp to uint8 range and convert
+            tensor_uint8 = tensor_flat.clamp(0, 255).to(torch.uint8)
+            return bytes(tensor_uint8.tolist())
         
         elif num_bits == 4:
             # 4-bit: pack two values per byte
             num_packed = (total_elements + 1) // 2
-            result_bytes = bytearray(num_packed)
-            tensor_flat = tensor.flatten()
+            result = torch.zeros(num_packed, dtype=torch.uint8)
             
-            for i in range(0, total_elements, chunk_size):
-                chunk = tensor_flat[i:i+chunk_size].numpy().astype(np.int32)
-                chunk_start_idx = i // 2
-                
-                for j in range(0, len(chunk), 2):
-                    low = chunk[j] & 0x0F
-                    high = (chunk[j + 1] & 0x0F) if j + 1 < len(chunk) else 0
-                    result_bytes[chunk_start_idx + j // 2] = low | (high << 4)
+            # Process pairs
+            for i in range(0, total_elements, 2):
+                low = tensor_flat[i].item() & 0x0F
+                high = (tensor_flat[i + 1].item() & 0x0F) if i + 1 < total_elements else 0
+                result[i // 2] = low | (high << 4)
             
-            return bytes(result_bytes)
+            return bytes(result.tolist())
         
         elif num_bits == 6:
             # 6-bit: pack 4 values into 3 bytes
             num_groups = (total_elements + 3) // 4
             num_packed_bytes = num_groups * 3
-            result_bytes = bytearray(num_packed_bytes)
-            tensor_flat = tensor.flatten()
+            result = torch.zeros(num_packed_bytes, dtype=torch.uint8)
             
-            for i in range(0, total_elements, chunk_size):
-                chunk = tensor_flat[i:i+chunk_size].numpy().astype(np.int32)
-                chunk_group_start = i // 4
+            for group_idx in range(num_groups):
+                base_idx = group_idx * 4
                 
-                for j in range(0, len(chunk), 4):
-                    v0 = chunk[j] & 0x3F if j < len(chunk) else 0
-                    v1 = chunk[j + 1] & 0x3F if j + 1 < len(chunk) else 0
-                    v2 = chunk[j + 2] & 0x3F if j + 2 < len(chunk) else 0
-                    v3 = chunk[j + 3] & 0x3F if j + 3 < len(chunk) else 0
-                    
-                    group_idx = chunk_group_start + j // 4
-                    result_bytes[group_idx * 3] = v0 | ((v1 & 0x03) << 6)
-                    result_bytes[group_idx * 3 + 1] = (v1 >> 2) | ((v2 & 0x0F) << 4)
-                    result_bytes[group_idx * 3 + 2] = (v2 >> 4) | (v3 << 2)
+                v0 = tensor_flat[base_idx].item() & 0x3F if base_idx < total_elements else 0
+                v1 = tensor_flat[base_idx + 1].item() & 0x3F if base_idx + 1 < total_elements else 0
+                v2 = tensor_flat[base_idx + 2].item() & 0x3F if base_idx + 2 < total_elements else 0
+                v3 = tensor_flat[base_idx + 3].item() & 0x3F if base_idx + 3 < total_elements else 0
+                
+                result[group_idx * 3] = v0 | ((v1 & 0x03) << 6)
+                result[group_idx * 3 + 1] = (v1 >> 2) | ((v2 & 0x0F) << 4)
+                result[group_idx * 3 + 2] = (v2 >> 4) | (v3 << 2)
             
-            return bytes(result_bytes)
+            return bytes(result.tolist())
         
         else:
             # Fallback: use 8-bit
-            return tensor.flatten().numpy().astype(np.uint8).tobytes()
+            tensor_uint8 = tensor_flat.clamp(0, 255).to(torch.uint8)
+            return bytes(tensor_uint8.tolist())
 
     def _unpack_quantized_tensor(
         self, data_bytes: bytes, shape: tuple, num_bits: int, device: str
     ) -> torch.Tensor:
         """
-        ⭐ FIXED: Chunk-based unpacking
+        Pure PyTorch unpacking - no NumPy required
         
         Args:
             data_bytes: Packed bytes
@@ -292,68 +276,53 @@ Answer:"""
         Returns:
             Unpacked int32 tensor
         """
-        total_elements = int(np.prod(shape))
-        chunk_size = 1_000_000
+        total_elements = 1
+        for s in shape:
+            total_elements *= s
         
         if num_bits == 8:
-            # 8-bit: direct conversion in chunks
-            result = torch.empty(total_elements, dtype=torch.int32)
-            
-            for i in range(0, total_elements, chunk_size):
-                end_idx = min(i + chunk_size, total_elements)
-                chunk_data = np.frombuffer(
-                    data_bytes[i:end_idx], 
-                    dtype=np.uint8
-                ).astype(np.int32)
-                result[i:end_idx] = torch.from_numpy(chunk_data)
+            # 8-bit: direct conversion
+            byte_list = list(data_bytes[:total_elements])
+            result = torch.tensor(byte_list, dtype=torch.int32)
         
         elif num_bits == 4:
             # 4-bit: unpack pairs
-            result = torch.empty(total_elements, dtype=torch.int32)
+            result = torch.zeros(total_elements, dtype=torch.int32)
+            byte_list = list(data_bytes)
             
-            packed = np.frombuffer(data_bytes, dtype=np.uint8)
-            for i in range(0, total_elements, chunk_size):
-                end_idx = min(i + chunk_size, total_elements)
-                packed_start = i // 2
-                packed_end = (end_idx + 1) // 2
-                
-                chunk_packed = packed[packed_start:packed_end]
-                for j, byte_val in enumerate(chunk_packed):
-                    idx = i + j * 2
-                    if idx < total_elements:
-                        result[idx] = byte_val & 0x0F
-                    if idx + 1 < total_elements:
-                        result[idx + 1] = (byte_val >> 4) & 0x0F
+            for i in range(len(byte_list)):
+                idx = i * 2
+                if idx < total_elements:
+                    result[idx] = byte_list[i] & 0x0F
+                if idx + 1 < total_elements:
+                    result[idx + 1] = (byte_list[i] >> 4) & 0x0F
         
         elif num_bits == 6:
             # 6-bit: unpack groups of 4 from 3 bytes
-            result = torch.empty(total_elements, dtype=torch.int32)
-            packed = np.frombuffer(data_bytes, dtype=np.uint8)
+            result = torch.zeros(total_elements, dtype=torch.int32)
+            byte_list = list(data_bytes)
             
-            for i in range(0, total_elements, chunk_size):
-                end_idx = min(i + chunk_size, total_elements)
-                
-                for idx in range(i, end_idx, 4):
-                    group_idx = idx // 4
-                    if group_idx * 3 + 2 < len(packed):
-                        b0 = packed[group_idx * 3]
-                        b1 = packed[group_idx * 3 + 1]
-                        b2 = packed[group_idx * 3 + 2]
-                        
-                        if idx < total_elements:
-                            result[idx] = b0 & 0x3F
-                        if idx + 1 < total_elements:
-                            result[idx + 1] = ((b0 >> 6) | ((b1 & 0x0F) << 2)) & 0x3F
-                        if idx + 2 < total_elements:
-                            result[idx + 2] = ((b1 >> 4) | ((b2 & 0x03) << 4)) & 0x3F
-                        if idx + 3 < total_elements:
-                            result[idx + 3] = (b2 >> 2) & 0x3F
+            num_groups = (total_elements + 3) // 4
+            for group_idx in range(num_groups):
+                if group_idx * 3 + 2 < len(byte_list):
+                    b0 = byte_list[group_idx * 3]
+                    b1 = byte_list[group_idx * 3 + 1]
+                    b2 = byte_list[group_idx * 3 + 2]
+                    
+                    base_idx = group_idx * 4
+                    if base_idx < total_elements:
+                        result[base_idx] = b0 & 0x3F
+                    if base_idx + 1 < total_elements:
+                        result[base_idx + 1] = ((b0 >> 6) | ((b1 & 0x0F) << 2)) & 0x3F
+                    if base_idx + 2 < total_elements:
+                        result[base_idx + 2] = ((b1 >> 4) | ((b2 & 0x03) << 4)) & 0x3F
+                    if base_idx + 3 < total_elements:
+                        result[base_idx + 3] = (b2 >> 2) & 0x3F
         
         else:
             # Fallback
-            result = torch.from_numpy(
-                np.frombuffer(data_bytes[:total_elements], dtype=np.uint8).astype(np.int32)
-            )
+            byte_list = list(data_bytes[:total_elements])
+            result = torch.tensor(byte_list, dtype=torch.int32)
         
         # Reshape and move to device
         result = result[:total_elements].reshape(shape)
@@ -424,8 +393,12 @@ Answer:"""
         val_zp = header_data[12]
         
         # Calculate sizes
-        key_elements = int(np.prod(key_shape))
-        value_elements = int(np.prod(value_shape))
+        key_elements = 1
+        for s in key_shape:
+            key_elements *= s
+        value_elements = 1
+        for s in value_shape:
+            value_elements *= s
         
         if num_bits == 8:
             key_packed_size = key_elements
@@ -566,29 +539,33 @@ Answer:"""
                 temp_past_kv, layer_idx
             )
 
-            # ⭐ SERIALIZE with efficient bit-packing
+            # SERIALIZE with efficient bit-packing
             transmitted_bytes = self._serialize_quantized_data(quantized_data, metadata)
             transmitted_size = len(transmitted_bytes)
             metrics["total_bytes_transmitted"] += transmitted_size
 
-            # ⭐ FIXED: Calculate original size WITHOUT creating arrays that overflow
+            # Calculate original size
             try:
-                # Method 1: Direct calculation from tensor properties
+                # Direct calculation from tensor properties
                 original_size_bytes = (
                     key.numel() * key.element_size() + 
                     value.numel() * value.element_size()
                 )
             except (RuntimeError, OverflowError) as e:
-                # Method 2: Fallback to shape-based estimation
+                # Fallback to shape-based estimation
                 try:
-                    key_size = int(np.prod(key.shape)) * 4  # Assume float32
-                    value_size = int(np.prod(value.shape)) * 4
-                    original_size_bytes = key_size + value_size
+                    key_elements = 1
+                    for s in key.shape:
+                        key_elements *= s
+                    value_elements = 1
+                    for s in value.shape:
+                        value_elements *= s
+                    original_size_bytes = (key_elements + value_elements) * 4  # Assume float32
                 except:
-                    # Method 3: Last resort - estimate from transmitted size
+                    # Last resort - estimate from transmitted size
                     original_size_bytes = transmitted_size * 4  # Conservative estimate
             
-            # ⭐ DESERIALIZE
+            # DESERIALIZE
             received_quantized_data, received_metadata = self._deserialize_quantized_data(
                 transmitted_bytes, self.device
             )
