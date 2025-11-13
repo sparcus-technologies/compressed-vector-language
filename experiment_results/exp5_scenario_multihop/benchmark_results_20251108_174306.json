@@ -1,0 +1,30 @@
+{
+  "hotpot_qa": [
+    {
+      "id": "5a8b57f25542995d1e6f1371",
+      "dataset": "hotpot_qa",
+      "question": "Were Scott Derrickson and Ed Wood of the same nationality?",
+      "prediction": "kin, and David Fincher.",
+      "ground_truth": "yes",
+      "is_answerable": true,
+      "contextual_relevance": 0.45007210969924927,
+      "answer_completeness": 0.0,
+      "semantic_fidelity": 0.09445008635520935,
+      "response_coherence": 0.8,
+      "communication_efficiency": 0.0,
+      "information_throughput": 0.0,
+      "compression_quality_score": 1.0,
+      "semantic_preservation": 1.0,
+      "inference_time": 16.466402053833008,
+      "compression_ratio": 1.0,
+      "layers_transmitted": 19,
+      "bits_original": 79691776,
+      "bits_compressed": 79691776,
+      "bits_saved": 0,
+      "baseline_prediction": "kin, and David Fincher.",
+      "baseline_time": 17.05862307548523,
+      "using_semantic_model": true,
+      "success": true
+    }
+  ]
+}

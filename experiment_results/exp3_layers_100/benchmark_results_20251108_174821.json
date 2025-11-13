@@ -1,0 +1,58 @@
+{
+  "squad": [
+    {
+      "id": "56ddde6b9a695914005b9628",
+      "dataset": "squad",
+      "question": "In what country is Normandy located?",
+      "prediction": "Normandy is located in France.",
+      "ground_truth": "France",
+      "is_answerable": true,
+      "contextual_relevance": 0.9297822117805481,
+      "answer_completeness": 1.0,
+      "semantic_fidelity": 0.5070252418518066,
+      "response_coherence": 1.0,
+      "communication_efficiency": 1.0,
+      "information_throughput": 0.08081464195061076,
+      "compression_quality_score": 1.0,
+      "semantic_preservation": 1.0,
+      "inference_time": 12.373995304107666,
+      "compression_ratio": 1.0,
+      "layers_transmitted": 22,
+      "bits_original": 33521664,
+      "bits_compressed": 33521664,
+      "bits_saved": 0,
+      "baseline_prediction": "Normandy is located in France.",
+      "baseline_time": 15.645893573760986,
+      "using_semantic_model": true,
+      "success": true
+    }
+  ],
+  "narrativeqa": [
+    {
+      "id": "narrativeqa_0",
+      "dataset": "narrativeqa",
+      "question": "WHO NORMALLY DELIVERS THE OPENING PROLOGUE IN THE PLAY?",
+      "prediction": "The play begins with three pages disputing over the black cloak usually worn by the actor who delivers the prologue. They draw lots for the cloak, and one of the losers, Anaides, starts telling the audience what happens",
+      "ground_truth": "THE ACTOR WEARING THE BLACK CLOAK",
+      "is_answerable": true,
+      "contextual_relevance": 0.6182628870010376,
+      "answer_completeness": 0.8,
+      "semantic_fidelity": 0.4756176471710205,
+      "response_coherence": 0.9526315789473683,
+      "communication_efficiency": 0.8,
+      "information_throughput": 0.05670580427657387,
+      "compression_quality_score": 1.0,
+      "semantic_preservation": 1.0,
+      "inference_time": 14.107903242111206,
+      "compression_ratio": 1.0,
+      "layers_transmitted": 22,
+      "bits_original": 47038464,
+      "bits_compressed": 47038464,
+      "bits_saved": 0,
+      "baseline_prediction": "The play begins with three pages disputing over the black cloak usually worn by the actor who delivers the prologue. They draw lots for the cloak, and one of the losers, Anaides, starts telling the audience what happens",
+      "baseline_time": 24.614831924438477,
+      "using_semantic_model": true,
+      "success": true
+    }
+  ]
+}

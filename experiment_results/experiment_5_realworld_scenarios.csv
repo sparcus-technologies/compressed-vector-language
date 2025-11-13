@@ -1,0 +1,3 @@
+scenario,dataset,num_samples,contextual_relevance,answer_completeness,compression_ratio,bandwidth_saved_mb,cache_hit_rate,avg_inference_time
+conversational_qa,coqa,1,0.6386756896972656,1.0,1.0,0.0,0.0,
+multi_hop_reasoning,hotpot_qa,1,0.45007210969924927,0.0,1.0,0.0,,16.466402053833008

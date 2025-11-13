@@ -1,0 +1,58 @@
+{
+  "squad": [
+    {
+      "id": "56ddde6b9a695914005b9628",
+      "dataset": "squad",
+      "question": "In what country is Normandy located?",
+      "prediction": "Normandy is located in France. It was originally part of the region known as West Francia before becoming an independent duchy during the reign of William I of Normandy. Over time, Normandy became a significant political and cultural center within France",
+      "ground_truth": "France",
+      "is_answerable": true,
+      "contextual_relevance": 0.8208911418914795,
+      "answer_completeness": 1.0,
+      "semantic_fidelity": 0.44245821237564087,
+      "response_coherence": 0.9707317073170731,
+      "communication_efficiency": 1.0,
+      "information_throughput": 0.021687461714890385,
+      "compression_quality_score": 1.0,
+      "semantic_preservation": 1.0,
+      "inference_time": 46.109591484069824,
+      "compression_ratio": 1.0,
+      "layers_transmitted": 19,
+      "bits_original": 26148864,
+      "bits_compressed": 26148864,
+      "bits_saved": 0,
+      "baseline_prediction": "Normandy is located in France. It was originally part of the region known as West Francia before becoming an independent duchy during the reign of William I of Normandy. Over time, Normandy became a significant political and cultural center within France",
+      "baseline_time": 53.4180052280426,
+      "using_semantic_model": true,
+      "success": true
+    }
+  ],
+  "narrativeqa": [
+    {
+      "id": "narrativeqa_0",
+      "dataset": "narrativeqa",
+      "question": "WHO NORMALLY DELIVERS THE OPENING PROLOGUE IN THE PLAY?",
+      "prediction": "The opening prologue is normally delivered by the actor who plays the role of Gargaphie in Greek mythology. This character often appears at the beginning of plays or performances to set the stage and introduce the main characters or themes of the story. In",
+      "ground_truth": "THE ACTOR WEARING THE BLACK CLOAK",
+      "is_answerable": true,
+      "contextual_relevance": 0.6432937383651733,
+      "answer_completeness": 0.4,
+      "semantic_fidelity": 0.3004157543182373,
+      "response_coherence": 0.9249999999999999,
+      "communication_efficiency": 0.4,
+      "information_throughput": 0.009511500186573693,
+      "compression_quality_score": 1.0,
+      "semantic_preservation": 1.0,
+      "inference_time": 42.054354429244995,
+      "compression_ratio": 1.0,
+      "layers_transmitted": 19,
+      "bits_original": 34553856,
+      "bits_compressed": 34553856,
+      "bits_saved": 0,
+      "baseline_prediction": "The opening prologue is normally delivered by the actor who plays the role of Gargaphie in Greek mythology. This character often appears at the beginning of plays or performances to set the stage and introduce the main characters or themes of the story. In",
+      "baseline_time": 46.636486768722534,
+      "using_semantic_model": true,
+      "success": true
+    }
+  ]
+}

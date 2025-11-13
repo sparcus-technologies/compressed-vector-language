@@ -1,0 +1,9 @@
+layer_selection_ratio,dataset,num_samples,compression_ratio,total_bandwidth_saved_mb,avg_bandwidth_per_sample_mb,contextual_relevance,answer_completeness,avg_layers_transmitted
+0.5,squad,1,1.0,0.0,0.0,0.9297822117805481,1.0,0.0
+0.5,narrativeqa,1,1.0,0.0,0.0,0.6182628870010376,0.8,0.0
+0.7,squad,1,1.0,0.0,0.0,0.9297822117805481,1.0,0.0
+0.7,narrativeqa,1,1.0,0.0,0.0,0.6182628870010376,0.8,0.0
+0.9,squad,1,1.0,0.0,0.0,0.9297822117805481,1.0,0.0
+0.9,narrativeqa,1,1.0,0.0,0.0,0.6182628870010376,0.8,0.0
+1.0,squad,1,1.0,0.0,0.0,0.9297822117805481,1.0,0.0
+1.0,narrativeqa,1,1.0,0.0,0.0,0.6182628870010376,0.8,0.0

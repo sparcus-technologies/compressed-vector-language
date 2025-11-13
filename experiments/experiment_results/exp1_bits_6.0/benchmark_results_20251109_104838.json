@@ -1,0 +1,188 @@
+{
+  "squad": [
+    {
+      "id": "56ddde6b9a695914005b9628",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "56ddde6b9a695914005b9629",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "56ddde6b9a695914005b962a",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "56ddde6b9a695914005b962b",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "56ddde6b9a695914005b962c",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5ad39d53604f3c001a3fe8d1",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5ad39d53604f3c001a3fe8d2",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5ad39d53604f3c001a3fe8d3",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5ad39d53604f3c001a3fe8d4",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "56dddf4066d3e219004dad5f",
+      "dataset": "squad",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    }
+  ],
+  "hotpot_qa": [
+    {
+      "id": "5a8b57f25542995d1e6f1371",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5a8c7595554299585d9e36b6",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5a85ea095542994775f606a8",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5adbf0a255429947ff17385a",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5a8e3ea95542995a26add48d",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5abd94525542992ac4f382d2",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5a85b2d95542997b5ce40028",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5a87ab905542996e4f3088c1",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5a7bbb64554299042af8f7cc",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "5a8db19d5542994ba4e3dd00",
+      "dataset": "hotpot_qa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    }
+  ],
+  "narrativeqa": [
+    {
+      "id": "narrativeqa_0",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_1",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_2",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_3",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_4",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_5",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_6",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_7",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_8",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    },
+    {
+      "id": "narrativeqa_9",
+      "dataset": "narrativeqa",
+      "success": false,
+      "error": "Stride calculation overflowed"
+    }
+  ]
+}
