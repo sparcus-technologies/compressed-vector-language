@@ -1,10 +1,44 @@
-# Q-KVComm Research Experiments
+# 🚀 Q-KVComm Research Experiments
 
-Publication-quality experiments for evaluating Q-KVComm performance.
+> **Publication-quality experiments for evaluating Quantized Key-Value Communication in multi-agent LLM systems**
 
-## Overview
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-This folder contains individual experiments designed for research evaluation and publication. Each experiment can be run independently and generates CSV results with detailed metrics.
+---
+
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Quick Start](#quick-start)
+- [Experiment Suite](#experiment-suite)
+- [Results & Performance](#results--performance)
+- [Visualization](#visualization)
+- [Advanced Usage](#advanced-usage)
+- [Supporting Files](#supporting-files)
+
+---
+
+## 🎯 Overview
+
+This repository contains code for evaluating **Q-KVComm** (Quantized Key-Value Communication) - a novel approach for efficient communication between LLM agents through compressed intermediate representations.
+
+### Key Features
+
+✨ **5 Publication-Ready Experiments** - Comprehensive evaluation across compression, extraction, bandwidth, scalability, and real-world scenarios
+
+📊 **Multi-Dataset Benchmarking** - Evaluation on SQuAD, HotpotQA, CoQA, NarrativeQA, and Natural Questions
+
+🔬 **Rigorous Metrics** - Contextual relevance, semantic fidelity, answer completeness, and efficiency measurements
+
+📈 **Automatic Visualization** - Publication-quality plots with LaTeX-style formatting
+
+⚡ **GPU Acceleration** - CUDA support with automatic device detection
+
+---
+
+## ⚡ Quick Start
 
 ## Experiment Files
 
@@ -180,6 +214,15 @@ python experiments_new/visualization.py
 ```
 
 ## Results Structure
+
+┌─────────────────────────────────────────────────────────┐
+│  COMPRESSION EFFICIENCY                                 │
+├─────────────────────────────────────────────────────────┤
+│  Compression Ratio:        6.93×                        │
+│  Bandwidth Saved:          4.14 GB (60 samples)         │
+│  Avg per Sample:           69 MB saved                  │
+│  Layer Selection:          15/22 layers (68%)           │
+└─────────────────────────────────────────────────────────┘
 
 ```
 experiment_results/
