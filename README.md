@@ -61,6 +61,7 @@ print(f"Bandwidth saved: {metrics['bandwidth_saved_mb']:.2f} MB")
 
 ## 📊 Benchmark Results
 
+```
 ┌─────────────────────────────────────────────────────────┐
 │  COMPRESSION EFFICIENCY                                 │
 ├─────────────────────────────────────────────────────────┤
@@ -69,6 +70,7 @@ print(f"Bandwidth saved: {metrics['bandwidth_saved_mb']:.2f} MB")
 │  Avg per Sample:           69 MB saved                  │
 │  Layer Selection:          15/22 layers (68%)           │
 └─────────────────────────────────────────────────────────┘
+```
 
 **Configuration:**
 - **Bit-widths tested:** 4-bit, 6-bit, 8-bit, 12-bit
@@ -211,7 +213,7 @@ This work introduces Q-KVComm, a unified protocol for efficient multi-agent LLM 
 ```bibtex
 @article{qkvcomm2025,
   title={Q-KVComm: Efficient Multi-Agent Communication via Adaptive KV Cache Compression},
-  author={Your Name},
+  author={Boris Kriuk, Logic Ng},
   journal={arXiv preprint arXiv:2XXX.XXXXX},
   year={2025}
 }
