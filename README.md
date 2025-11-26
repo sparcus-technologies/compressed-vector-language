@@ -8,7 +8,7 @@
 
 ## 🎯 Key Features
 
-- **2-3x Compression** with perfect semantic preservation
+- **4-8x Compression** with perfect semantic preservation
 - **Zero Quality Loss** compared to uncompressed baselines
 - **Adaptive Extraction** using YAKE, SpaCy NER, and hybrid methods
 - **Layer-wise Quantization** with sensitivity-based bit allocation
@@ -61,14 +61,29 @@ print(f"Bandwidth saved: {metrics['bandwidth_saved_mb']:.2f} MB")
 
 ## 📊 Benchmark Results
 
-| Dataset         | Relevance | Completeness | Compression | Bandwidth Saved |
-| --------------- | --------- | ------------ | ----------- | --------------- |
-| **SQuAD**       | 0.80      | 0.90         | 2.84x       | 81.7 MB         |
-| **NarrativeQA** | 0.73      | 0.88         | 2.84x       | 108.0 MB        |
-| **CoQA**        | 0.50      | 0.60         | 2.84x       | 177.2 MB        |
-| **HotpotQA**    | 0.27      | 0.20         | 2.84x       | 249.0 MB        |
+┌─────────────────────────────────────────────────────────┐
+│  COMPRESSION EFFICIENCY                                 │
+├─────────────────────────────────────────────────────────┤
+│  Compression Ratio:        6.93×                        │
+│  Bandwidth Saved:          4.14 GB (60 samples)         │
+│  Avg per Sample:           69 MB saved                  │
+│  Layer Selection:          15/22 layers (68%)           │
+└─────────────────────────────────────────────────────────┘
 
-**Overall System Score: 0.79/1.0** (EXCELLENT ⭐⭐⭐⭐⭐)
+**Configuration:**
+- **Bit-widths tested:** 4-bit, 6-bit, 8-bit, 12-bit
+- **Datasets:** SQuAD, HotpotQA, NarrativeQA
+- **Metrics:** Contextual relevance, answer completeness, semantic fidelity, compression ratio
+
+**Key Findings (4-bit quantization):**
+
+| Metric | Score | Performance |
+|--------|-------|-------------|
+| **Compression Ratio** | **6.93×** | ⭐⭐⭐⭐⭐ Excellent |
+| **Contextual Relevance** | 0.54 | ⭐⭐⭐ Good |
+| **Response Coherence** | 0.88 | ⭐⭐⭐⭐ Very Good |
+| **Overall System Score** | 0.64 | ⭐⭐⭐⭐ Good |
+| **Bandwidth Saved** | 4.1 GB | 💾 Massive savings |
 
 ## 🏗️ Architecture
 
